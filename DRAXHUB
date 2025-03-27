@@ -1,0 +1,24 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("KRAX HUB | STRONG LEGENDS", "Sentinel")
+
+local Tab = Window:NewTab("Main")
+
+local Section = Tab:NewSection("Autofarm")
+
+Section:NewButton("Autofarm", "farm", function()
+    
+local args = { [1] = "s.actions.toggle_equip", [2] = { [1] = "BarbellSquat" } }
+
+game:GetService("ReplicatedStorage").Common.Library.Network.RemoteEvent:FireServer(unpack(args))
+
+task.wait(0.1)
+
+while true do wait()
+
+local args = { [1] = "s.barbell_squat.trigger8211409041", [2] = {} }
+
+game:GetService("ReplicatedStorage").Common.Library.Network.RemoteFunction:InvokeServer(unpack(args))
+end
+
+end)
